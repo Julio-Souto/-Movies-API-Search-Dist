@@ -7,7 +7,7 @@
     <img src="" alt="">\r
     <figcaption><time></time></figcaption>\r
   </figure>\r
-</div>`,u=document.querySelector("#app"),f="http://www.omdbapi.com/",m="?apikey=bb557db";let g=f+""+m+"&s=";function y(){fetch(g+document.getElementById("search").value.trim()).then(r=>r.json()).then(r=>{r!==null?document.querySelector(".grid-movies").innerHTML=h(r).join(""):document.querySelector(".grid-movies").innerHTML="<p>Error desconocido</p>"})}function h(r){return r.Response==="True"?r.Search.map(n=>`<figure>
+</div>`,u=document.querySelector("#app"),f="https://www.omdbapi.com/",m="?apikey=bb557db";let g=f+""+m+"&s=";function y(){fetch(g+document.getElementById("search").value.trim()).then(r=>r.json()).then(r=>{r!==null?document.querySelector(".grid-movies").innerHTML=h(r).join(""):document.querySelector(".grid-movies").innerHTML="<p>Error desconocido</p>"})}function h(r){return r.Response==="True"?r.Search.map(n=>`<figure>
         <img src="${n.Poster}" alt="${n.Type}">
         <figcaption>${n.Title}<time>${n.Year}</time></figcaption>
       </figure>`):r.Error==="Movie not found!"?[`<p>${l.Error}</p>`,`<p>${l.Response}</p>`]:[`<p>${s.Error}</p>`,`<p>${s.Response}</p>`]}function v(){if(!u)throw new Error("No existe elemento raiz");u.innerHTML=`
